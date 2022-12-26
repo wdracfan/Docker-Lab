@@ -1,9 +1,10 @@
-version: "3.8"
+version: "3"
 
 services:
   jupyterhub:
     build: .
+    env_file: ./.env
     ports:
       - 80:80
     volumes:
-      - ./home:/home
+      - ${NOTEBOOKS_FROM:-./home}:/home/${HUB_PATH:-}
