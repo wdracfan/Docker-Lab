@@ -1,5 +1,3 @@
-import os
-
 c.JupyterHub.port = 80
 
 c.JupyterHub.authenticator_class = 'jupyterhub.auth.DummyAuthenticator'

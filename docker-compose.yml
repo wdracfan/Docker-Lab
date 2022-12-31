@@ -3,8 +3,11 @@ version: "3"
 services:
   jupyterhub:
     build: .
+    container_name: jupyterhub
     env_file: ./.env
     ports:
       - 80:80
     volumes:
-      - ${NOTEBOOKS_FROM:-./home}:/home/${HUB_PATH:-}
+      - type: bind
+        source: ${NOTEBOOKS_FROM:-./home}
+        target: /home/${HUB_PATH:-}
